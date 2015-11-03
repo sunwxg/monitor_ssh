@@ -3,7 +3,7 @@
 #get the ssh service PID
 ps axo pid,cmd | awk '/ssh.server/ && !/awk/ {print $1}' > $1
 
-#check ssh.server state by ping google.com
+#check ssh.server state by connecting to google.com
 proxychains wget --timeout=2  --delete-after http://www.google.com -o /dev/null
 
 res=$?
