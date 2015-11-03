@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dir=$(pwd)
+${dir}mssh ${dir}autossh ${dir}check

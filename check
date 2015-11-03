@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#get the ssh service PID
+ps axo pid,cmd | awk '/ssh.server/ && !/awk/ {print $1}' > $1
+
+#check ssh.server state by ping google.com
+proxychains wget --timeout=2  --delete-after http://www.google.com -o /dev/null
+
+res=$?
+
+if [ $res == 0 ]
+	then exit 0
+fi
+
+exit 1

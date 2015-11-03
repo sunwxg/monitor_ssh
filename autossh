@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+import pexpect
+
+child=pexpect.spawn('ssh -qTfnN -D 9090 user@ssh.server');
+
+child.expect('password:');
+child.sendline('xxxxx');
+
+child.expect(pexpect.EOF);
